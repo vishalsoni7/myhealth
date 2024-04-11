@@ -6,17 +6,23 @@ import {
   deleteFoodData,
 } from "../utils/actions.js";
 import { FoodCard } from "../component/Cards";
-import { Box, Button, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  TextField,
+  Typography,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
 import { DNA } from "react-loader-spinner";
 import { drawerWidth } from "../constant/Layout.js";
-// import { useTheme, useMediaQuery } from "@material-ui/core";
 
 export const Foods = () => {
   const dispatch = useDispatch();
   const foods = useSelector((state) => state.foods);
   const loading = useSelector((state) => state.loading);
-  // const theme = useTheme();
-  // const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   const [input, setInput] = useState({
     name: "",
@@ -93,7 +99,7 @@ export const Foods = () => {
           onChange={handleInput}
           value={input.name}
           size="small"
-          // fullWidth={isSmallScreen}
+          fullWidth={isSmallScreen}
         />
         <TextField
           name="calories"
@@ -103,7 +109,7 @@ export const Foods = () => {
           value={input.calories}
           size="small"
           type="number"
-          // fullWidth={isSmallScreen}
+          fullWidth={isSmallScreen}
         />
         <TextField
           type="number"
@@ -112,7 +118,7 @@ export const Foods = () => {
           label="Protein"
           onChange={handleInput}
           size="small"
-          // fullWidth={isSmallScreen}
+          fullWidth={isSmallScreen}
         />
         <TextField
           type="number"
@@ -121,7 +127,7 @@ export const Foods = () => {
           label="Carbohydrates"
           onChange={handleInput}
           size="small"
-          // fullWidth={isSmallScreen}
+          fullWidth={isSmallScreen}
         />
         <TextField
           type="number"
@@ -130,7 +136,7 @@ export const Foods = () => {
           label="Fat"
           onChange={handleInput}
           size="small"
-          // fullWidth={isSmallScreen}
+          fullWidth={isSmallScreen}
         />
         <Button
           sx={{ background: "darkcyan" }}

@@ -7,17 +7,23 @@ import {
 } from "../utils/actions.js";
 
 import { ExerciseCard } from "../component/Cards";
-import { Box, Button, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  TextField,
+  Typography,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
 import { DNA } from "react-loader-spinner";
 import { drawerWidth } from "../constant/Layout.js";
-// import { useTheme, useMediaQuery } from "@material-ui/core";
 
 export const Exercises = () => {
   const dispatch = useDispatch();
   const exercises = useSelector((state) => state.exercises);
   const loading = useSelector((state) => state.loading);
-  // const theme = useTheme();
-  // const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   const [input, setInput] = useState({
     name: "",
@@ -88,7 +94,7 @@ export const Exercises = () => {
           onChange={handleInput}
           value={input.name}
           size="small"
-          // fullWidth={isSmallScreen}
+          fullWidth={isSmallScreen}
         />
         <TextField
           name="duration"
@@ -98,7 +104,7 @@ export const Exercises = () => {
           value={input.duration}
           type="number"
           size="small"
-          // fullWidth={isSmallScreen}
+          fullWidth={isSmallScreen}
         />
         <Button
           sx={{

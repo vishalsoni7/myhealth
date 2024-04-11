@@ -15,17 +15,18 @@ import {
   Select,
   TextField,
   Typography,
+  useTheme,
+  useMediaQuery,
 } from "@mui/material";
 import { DNA } from "react-loader-spinner";
 import { drawerWidth } from "../constant/Layout.js";
-// import { useTheme, useMediaQuery } from "@material-ui/core";
 
 export const Goals = () => {
   const dispatch = useDispatch();
   const goals = useSelector((state) => state.goals);
   const loading = useSelector((state) => state.loading);
-  // const theme = useTheme();
-  // const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   const [input, setInput] = useState({
     name: "",
@@ -102,7 +103,7 @@ export const Goals = () => {
           label="Name"
           onChange={handleInput}
           size="small"
-          // fullWidth={isSmallScreen}
+          fullWidth={isSmallScreen}
         />
 
         <TextField
@@ -112,7 +113,7 @@ export const Goals = () => {
           label="Description"
           onChange={handleInput}
           size="small"
-          // fullWidth={isSmallScreen}
+          fullWidth={isSmallScreen}
         />
 
         <TextField
@@ -121,7 +122,7 @@ export const Goals = () => {
           value={input.createdAt}
           onChange={handleInput}
           size="small"
-          // fullWidth={isSmallScreen}
+          fullWidth={isSmallScreen}
         />
 
         <TextField
@@ -131,13 +132,13 @@ export const Goals = () => {
           label="Calories"
           onChange={handleInput}
           size="small"
-          // fullWidth={isSmallScreen}
+          fullWidth={isSmallScreen}
         />
 
         <FormControl
           size="small"
-          // sx={{ width: !isSmallScreen ? 140 : null }}
-          // fullWidth={isSmallScreen}
+          sx={{ width: !isSmallScreen ? 140 : null }}
+          fullWidth={isSmallScreen}
         >
           <InputLabel>Status</InputLabel>
           <Select
